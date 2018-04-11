@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reports</ion-title>
+      <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+  </ion-navbar>
+  <ion-toolbar>
+
+  <ion-segment [(ngModel)]="selectedSegment"  style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="back">
+   <h3 class="h3" style="color:darkcyan">Track your medical reports with MediAssist.</h3>
+ <br>
+  <img src="assets/medReport.jpg" >
+ <br>
+  <p style="color:brown">
+    You can add medical reports values and keep track of the levels of your reports.
+    If their any precautions we will notify you. </p>
+  
+  
+  <button ion-button color="blue" (click)="nextPage();"  outline class="chol button-positive  button-block">
+     Cholestrol
+</button>
+<br>
+ <button ion-button color="blue"(click)="nextP1();"outline class="diab button-positive  button-block">
+     Diabetic      
+</button>
+
+  <!--<div style="position: absolute; background-color: transparent; bottom: 0px; width: 100%">
+      <div class="row">
+      <button style="color: black; background-color: wheat;" class="col col-50 button button-block">button 1</button>
+      <button style="color: black; background-color: blue;" class="col col-50 button button-block">button 2</button>
+      </div> 
+</div>-->
+</ion-content>

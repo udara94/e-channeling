@@ -1,0 +1,236 @@
+
+<ion-header>
+
+  <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+    <ion-title style="text-align: center">Channel</ion-title>
+     
+  </ion-navbar>
+
+<ion-toolbar>
+
+  <ion-segment [(ngModel)]="selectedSegment"  style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+<ion-toolbar>
+  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)" >
+    <ion-segment-button value="first" style="color: white"  >
+      Name
+    </ion-segment-button>
+    <ion-segment-button value="second" style="color: white">
+       Speciallization
+    </ion-segment-button>
+    <ion-segment-button value="third" style="color: white">
+      Date
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: url('assets/back.jpg') no-repeat;" >
+<div>
+ <img src="assets/search.png" class="search">
+</div>
+<br><br><br><br><br>
+<div>
+<ion-slides #mySlider (ionDidChange)="onSlideChanged($event)">
+ 
+    <ion-slide >
+      <br><br> 
+   <ion-label>Doctor Name</ion-label> 
+    <ion-item>
+    <ion-input [(ngModel)]="name" type="text" placeholder="Doctor Name" id="name"></ion-input>
+  </ion-item>
+  <button ion-button full (click)="pickname(name)" >Search</button>
+
+    </ion-slide>
+
+
+    <ion-slide >
+
+    <ion-list>
+  <ion-label>Speciallization</ion-label>
+  <ion-item>
+    <ion-select [(ngModel)]="special" id="special"  >
+      <ion-option value="Nurologist">Nurologist</ion-option>
+      <ion-option value="Cardiologist">Cardiologist</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+  <button ion-button full (click)="pickspecial(special)" > Search</button>
+
+
+    </ion-slide>
+
+
+    <ion-slide >
+  <ion-label>Date</ion-label>
+   
+  <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="myDate"></ion-datetime >
+
+  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="Date"></ion-datetime>
+
+  
+<button ion-button full (click)="pickdate(date);compairedate(myDate,Date)" >Search</button>
+    </ion-slide>
+
+
+  </ion-slides>
+</div>
+
+  <style>
+  ion-scroll {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+  <!--<ion-slides style="max-height:500px">
+
+  <ion-slide >
+  <ion-card>
+  <ion-card-content>
+    <ion-item>
+   <ion-label>Doctor Name</ion-label>
+    <ion-input [(ngModel)]="name" type="text" placeholder="Doctor Name" id="name"></ion-input>
+  </ion-item>
+  <button ion-button full (click)="pickname(name)" > Name</button>
+  </ion-card-content>
+</ion-card>
+  </ion-slide>
+  
+  <ion-slide>
+     <ion-card>
+  <ion-card-content>
+    <ion-list>
+  <ion-item>
+    <ion-label>Speciallization</ion-label>
+    <ion-select [(ngModel)]="special" id="special" >
+      <ion-option value="Nurologist">Nurologist</ion-option>
+      <ion-option value="Cardiologist">Cardiologist</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+  <button ion-button full (click)="pickspecial(special)" > Search</button>
+  </ion-card-content>
+</ion-card>
+  </ion-slide>
+   
+   <ion-slide>
+    <ion-card>
+  <ion-card-content>
+   <ion-item>
+  <ion-label>Date</ion-label>
+    <ion-input [(ngModel)]="date" type="date" placeholder="Date" [min]="2017-05-07" [max]="2026-01-01"></ion-input>
+  </ion-item>
+<button ion-button full (click)="pickdate(date)" >Date</button>
+  </ion-card-content>
+</ion-card>
+  </ion-slide>
+  
+
+</ion-slides>-->
+
+
+
+ 
+
+
+
+
+
+<!--<button ion-button full (click)="add(name,special,date);" > Add</button>-->
+
+
+
+<!--<ion-item>
+   <ion-label> Name</ion-label>
+    <ion-input [(ngModel)]="name" type="text" placeholder=" Name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+     <ion-label>Eyecolor</ion-label> 
+  <ion-select [(ngModel)]="eyecolor">
+      <ion-option value="black">Black</ion-option>
+      <ion-option value="green">Green</ion-option>
+    </ion-select>
+     </ion-item>
+
+     <ion-item>
+   <ion-label>Age</ion-label>
+    <ion-input [(ngModel)]="age" type="text" placeholder=" age"></ion-input>
+  </ion-item>
+
+  <button ion-button full (click)="add(name,eyecolor,age);" > Search</button>-->
+
+
+<ion-list>
+  
+  
+  <ion-list  >
+    <ion-item *ngFor="let person of doctor | async">
+      
+      <button (click)="channel1(person);" class="btn" >
+      <ion-avatar item-left><img src="assets/avatar3.png"></ion-avatar>
+      
+      <h2>
+        {{ person.name }}
+        </h2>
+      
+      <label>
+         Speciallization: {{ person.special }}
+         </label><br>
+      <label>
+        Date: {{ person.date }}
+        </label><br>
+      <label hidden>
+        Appoinment No: {{ person.apno }}
+        </label><br>
+      <label hidden>
+        Time: {{ person.time }}
+        </label><br>
+      <label hidden>
+        Date: {{ person.date }}
+        </label><br>
+         <label hidden>
+        Payment: {{ person.payment }}
+        </label><br>
+      </button>
+      
+    </ion-item>
+  </ion-list>
+    
+  </ion-list>
+    
+
+</ion-content>

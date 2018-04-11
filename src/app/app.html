@@ -1,0 +1,28 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content >
+    <ion-list class="side-menu" >
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.homepage)" style="color:midnightblue">   <ion-icon style="color:darkgreen" name="home"></ion-icon>  Home</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.channel)" style="color:midnightblue">    <ion-icon style="color:lightsalmon"name="person"></ion-icon >Channel</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.nurse)" style="color:midnightblue">      <ion-icon style="color:orange" name="woman"></ion-icon >Reserve Nurse</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.contact)" style="color:midnightblue">    <ion-icon style="color:gold"name="chatboxes"></ion-icon >Keep Contact</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.report)" style="color:midnightblue">     <ion-icon style="color:hotpink"name="clipboard"></ion-icon >Report Analysis</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.emergency)" style="color:midnightblue">  <ion-icon style="color:darkred" name="call"></ion-icon >Emergency</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.feedback)" style="color:midnightblue">   <ion-icon style="color:chocolate"name="medkit"></ion-icon >Feedback</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.availablenurses)" style="color:midnightblue">   <ion-icon style="color:orange" name="woman"></ion-icon >Available Nurses</button>
+      <button menuClose ion-item  (click)="nav.setRoot(pages2.doctor)" style="color:midnightblue">    <ion-icon style="color:olive" name="clock"></ion-icon >Delay</button>
+
+
+      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,77 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+    <ion-title style="text-align: center">Channel Plan</ion-title>
+  </ion-navbar>
+
+<ion-segment [(ngModel)]="selectedSegment"  style="background-color: #90CAF9">
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-list >
+  <h4 style="color: blue" >Channel Details:</h4>
+  
+   <p><b>Doctor Name:</b>{{name}}</p>
+   <p><b>Specialization:</b>{{special}}</p>
+   <p><b>App.No:</b>{{apno}}</p>
+ 
+
+  <!-- <ion-item *ngFor="let apno of doctor | async" >
+   <button (click)="updateapno(apno)"  full>
+    <p >App.No:{{apno.apno}}</p>
+   </button>
+   </ion-item>-->
+  
+    <p><b>Date :</b>{{date}}</p> 
+    <p><b>Arr.time:</b>{{time}}</p>
+  
+    
+  </ion-list>
+
+  <h4 style="color: blue">Patient Details:</h4>
+    <p><b>Name:</b>{{username}}</p>
+    <p><b>National ID:</b>{{id}}</p>
+    <p><b>Telephone No:</b>{{telephone}}</p> 
+    <p><b>Email:</b>{{email}}</p>
+    
+
+  <ion-card class="card">
+  <ion-card-content>
+    <b>Paymenet:</b>{{payment}}
+  </ion-card-content>
+</ion-card>
+    
+  <button ion-button full (click)="pickname(name);presentToast();addHistory(name,apno,date,time)" >Channel</button>
+
+
+</ion-content>

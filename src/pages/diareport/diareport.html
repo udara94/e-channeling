@@ -1,0 +1,91 @@
+<!--
+  Generated template for the Diareport page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Diabetic Report</ion-title>
+      <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+  </ion-navbar>
+  <ion-toolbar>
+
+  <ion-segment [(ngModel)]="selectedSegment"  style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let diab of diabet | async">
+    <button ion-item>
+   
+      <p style="color:darkslategray"><b>Month : </b>{{ diab.month }}</p>
+      <p style="color:darkslategray"><b>Routine Blood Sugar : </b>{{ diab.rbs }}</p>
+      <p style="color:darkslategray"><b>Postprandial Sugar : </b>{{ diab.ps }}</p>
+      <p style="color:darkslategray"><b>Fasting Blood Sugar : </b> {{diab.fbs }}</p>
+      <p style="color:darkslategray"><b>Oral Glucose Test : </b>{{ diab.ogt }}</p>
+      <p style="color:darkslategray"><b>Glycated Himoglobin Test : </b>{{diab.ght }}</p>
+     </button>
+
+  <ion-item-options slide="left">
+  <button ion-button color="secondary" (click)="editreport(diab)">
+  <ion-icon name="md-create">Edit</ion-icon>
+  </button>
+
+  <button ion-button color="danger" (click)="delreport(diab.$key)">
+  <ion-icon name="md-trash">Delete</ion-icon>
+ </button>
+  </ion-item-options>  
+  </ion-item-sliding> 
+</ion-list>
+
+
+
+<!--<ion-content>-->
+   <h6 style="color:darkred">Precautions</h6>
+    <div style="color:darkslateblue" *ngFor="let diab of diabet | async">
+  Routine Blood Sugar of {{diab.month}} is {{diab.rbs}}
+ <div *ngIf="diab.rbs > 200">
+	<div style="color:crimson"   [ngClass]="'one'">High Sugar level.Control your sugar consumption.</div><br>
+  </div> 	
+ <div style="color:forestgreen  " *ngIf="diab.rbs < 110 ">
+<div [ngClass]="'two'">Normal Sugar level</div>
+ </div> <br>
+    </div>
+<!--</ion-content>-->
+
+
+<!--<ion-content padding>-->
+  <h6 style="color:tomato">Graph</h6>
+  <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="chartLegend"
+    [chartType]="chartType"> 
+  </canvas>
+    </ion-content>

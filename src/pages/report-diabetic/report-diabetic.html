@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ReportDiabetic page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Diabetic</ion-title>
+      <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+  </ion-navbar>
+  <ion-toolbar>
+
+  <ion-segment [(ngModel)]="selectedSegment"  style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2 style="color:darkslateblue">Details</h2>
+  
+<label class="item item-input">
+  <span class="input-label">Month</span><br>
+  <input [(ngModel)]="month" type="month"><br>
+  <br>
+  </label>
+<ion-list>
+
+    <ion-label style="color:blue"  >Routine Blood Sugar(mg/DL)</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="rbs" type="text" value="" clearInput></ion-input>
+  </ion-item>
+  <h6 style="color:darkred">Enter only numbers! </h6>
+<br>
+  
+  <ion-label style="color:blue" >Postprandial Sugar(mg/DL)</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="ps"  type="text" clearInput></ion-input>
+  </ion-item>
+  <h6 style="color:darkred">Enter only numbers! </h6>
+  <br>
+
+  <ion-label style="color:blue" >Fasting Blood Sugar(mg/DL)</ion-label>
+<ion-item>
+    <ion-input [(ngModel)]="fbs"  type="text" clearInput></ion-input>
+  </ion-item>
+  <h6 style="color:darkred">Enter only numbers! </h6>
+  <br>
+  
+   <ion-label style="color:blue" >Oral Glucose Test(mg/DL)</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="ogt" type="text" clearInput></ion-input>
+  </ion-item>
+  <h6 style="color:darkred">Enter only numbers! </h6>
+ <br>
+ 
+ <ion-label style="color:blue" >Glycated Himoglobin Test(mg/DL)</ion-label>
+ <ion-item>
+    <ion-input [(ngModel)]="ght" type="text" clearInput></ion-input>
+  </ion-item>
+  <h6 style="color:darkred">Enter only numbers! </h6>
+</ion-list>
+
+
+<h6 style="color:darkgreen">Please re check the values before you submit.</h6>
+
+<button ion-button (click)="submit(month,rbs,ps,fbs,ogt,ght);clear()">Submit</button>
+
+<button ion-button (click)="nextChart();">
+     Reports
+
+</button>
+
+</ion-content>

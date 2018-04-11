@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align: center">Feedback</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="selectedSegment" style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+<a href="#" onclick="window.open('https://apps.facebook.com/app_name', '_system', 'location=yes'); return false;">Open Facebook App</a>
+</ion-content>

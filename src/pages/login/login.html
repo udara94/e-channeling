@@ -1,0 +1,76 @@
+
+<ion-header>
+
+  <ion-navbar>
+   <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+    <ion-title class="title" style="text-align: center">Login</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="selectedSegment" style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding="true" class="=has-header" style="background: url('assets/back.jpg') no-repeat;">
+<form id="login-form11" class="list" >
+      <ion-list>
+<br><br><br><br><br>
+  <ion-item >
+   
+    <ion-input type="text" placeholder="Username" id="username" name="email" [(ngModel)]="email" ></ion-input>
+
+  </ion-item>
+
+  <ion-item >
+    
+    <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<ion-fab right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="fblogin()"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab (click)="twitterlogin()" ><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+      <div class="spacer" style="height: 40px;"></div>
+
+      <button ion-button full (click)="login();presentLoading()" class="btnlogin ">Login</button>
+      <button ion-button color="blue" (click)="crateAccount();" class="chol button-positive  button-block " clear>Or create account</button><br>
+      <button ion-button color="blue" (click)="forgot();" class="chol button-positive  button-block " clear>forgot password</button>
+      
+    </form>
+</ion-content>
+
+

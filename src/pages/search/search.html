@@ -1,0 +1,103 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+    <ion-title style="text-align: center">Search Results</ion-title>
+  </ion-navbar>
+
+  <ion-segment [(ngModel)]="selectedSegment" style="background-color: #90CAF9">
+
+    <ion-segment-button value="channel"  (click)="channel1();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+
+
+
+  <ion-list >
+   <h1>Dr {{name}}</h1>
+  
+    <ion-card class="card">
+  <ion-card-content>
+   <b><p>{{special}}</p></b>
+    <p>App.No: {{apno}}</p>
+    <p>Date : {{date}}</p> 
+    <p>Arr.time: {{time}}</p>
+    
+  </ion-card-content>
+</ion-card>
+    
+  </ion-list>
+<label hidden>{{payment}}</label>
+<ion-list>
+  <ion-label>Name</ion-label>
+<ion-item >
+    <ion-input [(ngModel)]="username" type="text" placeholder="Name"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<ion-list>
+  <ion-label>Telephone No</ion-label>
+<ion-item >
+    <ion-input [(ngModel)]="telephone" type="tel" placeholder="Number"></ion-input>
+  </ion-item>
+
+</ion-list>
+<ion-list>
+  <ion-label>Natinal ID</ion-label>
+<ion-item >
+    <ion-input [(ngModel)]="id" type="text" placeholder="National ID"></ion-input>
+  </ion-item>
+
+</ion-list>
+<ion-list>
+  <ion-label >Email</ion-label>
+<ion-item >
+    <ion-input [(ngModel)]="email" type="email" placeholder="Email"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+
+
+
+
+
+
+    <button ion-button full (click)="channel(name,special,apno,date,time,username,telephone,id,email,payment);">Submit</button>
+  
+  
+  
+
+
+</ion-content>

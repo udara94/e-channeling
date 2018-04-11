@@ -1,0 +1,126 @@
+<!--
+  Generated template for the Care page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <div class="div">
+    <button ion-button icon-only (click)="presentPopover($event)" >
+  <ion-icon name="more"></ion-icon>
+</button>
+    </div>
+    <ion-title style="text-align: center">Care</ion-title>
+  </ion-navbar>
+  <ion-segment [(ngModel)]="selectedSegment" style="background-color: #90CAF9" >
+
+    <ion-segment-button value="channel"  (click)="channel();">
+      <img src="assets/icon1.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="reserve" (click)="reserve();">
+       <img src="assets/icon2.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="report" (click)= "report()" >
+       <img src="assets/icon3.png">
+    </ion-segment-button>
+
+    <ion-segment-button value="emergency" (click)= "emergency()" >
+       <img src="assets/icon4.png">
+    </ion-segment-button>
+
+     <ion-segment-button value="contact" (click)= "contact()" >
+       <img src="assets/icon5.png">
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <style>
+  ion-scroll {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+ <ion-item> 
+<ion-label style="color: blue">Who need care?</ion-label>
+  <ion-select [(ngModel)]="who">
+      <ion-option value="parent">My Parent</ion-option>
+      <ion-option value="myself">Myself</ion-option>
+      <ion-option value="Spouse">My Spouse</ion-option>
+      <ion-option value="myfriend">My Friend</ion-option>
+      <ion-option value="grandparent">My Grandparent</ion-option>
+      <ion-option value="other">Other</ion-option>
+    </ion-select>
+     </ion-item>
+
+<ion-label>Where your parent live?</ion-label>
+<ion-item>
+    <ion-input type="text" placeholder="Place" [(ngModel)]="place"></ion-input>
+  </ion-item>
+
+<ion-label style="color: blue">About your parent</ion-label>
+
+<ion-item>
+  <ion-label>Age</ion-label>
+     <ion-select [(ngModel)]="age">
+      <ion-option value="12">between 1-12</ion-option>
+      <ion-option value="18">between 13-18</ion-option>
+      <ion-option value="60">between 19-60</ion-option>
+      <ion-option value="61">60+</ion-option>
+      
+    </ion-select>
+  </ion-item>
+
+<ion-item>
+  <ion-label>Gender</ion-label>
+     <ion-select [(ngModel)]="gender">
+      <ion-option value="male">Male</ion-option>
+      <ion-option value="female">Female</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+  <ion-label>Care Needed</ion-label>
+     <ion-select [(ngModel)]="car">
+      <ion-option value="daily">Daily(20-40 hour/week)</ion-option>
+      <ion-option value="full">Full time(40-100 hours/week)</ion-option>
+      <ion-option value="live">Live-in(100 hours/week)</ion-option>
+      <ion-option value="notsure">Not Sure</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-label style="color: blue">Duration</ion-label>
+
+<ion-item>
+  <ion-label>From</ion-label>
+     <ion-datetime displayFormat="MMM DD YYYY " [(ngModel)]="date1"></ion-datetime >
+  </ion-item>
+  <ion-item>
+  <ion-label>To</ion-label>
+    <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="date2"></ion-datetime>
+  </ion-item>
+  
+   <ion-card class="card" style="background-color: lightgreen">
+  <ion-card-content>
+   <p><b>Paymenet For One Day:</b>1000</p>
+  </ion-card-content>
+</ion-card>
+
+  <ion-item>
+    <ion-label>Need</ion-label>
+    <ion-textarea placeholder="enter the needs" [(ngModel)]="need" ></ion-textarea>
+  </ion-item>
+
+
+
+  <button ion-button full (click)="compairedate(date1,date2);submit(who,age,gender,car,place,date1,date2,need)" >Submit</button>
+
+
+</ion-content>
